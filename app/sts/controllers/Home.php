@@ -9,6 +9,10 @@ if (!defined('URL')) {
 
 class Home {  
     public function index(){
+
+        $home = new \Sts\models\StsHome;
+        $home->index();
+
         $carregarView = new \Core\ConfigView("sts/views/home/home");
         $carregarView->renderizar();
     }
