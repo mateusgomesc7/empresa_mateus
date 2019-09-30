@@ -1,0 +1,17 @@
+{
+    "name": "Mateus",
+    "description": "Projeto PHP OO",
+    "authors": [
+        {
+            "name": "Mateus Gomes",
+            "email": "mateusgomesc7@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Core\\" : "core",
+            "Sts\\" : "app/sts"
+        }
+    },
+    "require": {}
+}
