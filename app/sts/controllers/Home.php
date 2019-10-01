@@ -8,12 +8,15 @@ if (!defined('URL')) {
 }
 
 class Home {  
+
+    private $Dados;
+
     public function index(){
 
         $home = new \Sts\models\StsHome;
-        $home->index();
+        $this->Dados = $home->index();
 
-        $carregarView = new \Core\ConfigView("sts/views/home/home");
+        $carregarView = new \Core\ConfigView("sts/views/home/home", $this->Dados);
         $carregarView->renderizar();
     }
 }
