@@ -16,6 +16,9 @@ class Home {
         $listar_carousel = new \Sts\models\StsCarousel;
         $this->Dados['sts_carousels'] = $listar_carousel->listar();
 
+        $listar_servicos = new \Sts\models\StsServicos;
+        $this->Dados['sts_servicos'] = $listar_servicos->listar();
+
         $carregarView = new \Core\ConfigView("sts/views/home/home", $this->Dados);
         $carregarView->renderizar();
     }
