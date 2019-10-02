@@ -49,42 +49,58 @@ if (!defined('URL')) {
         <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
-        </a>
-        
-        <?php extract($this->Dados['sts_servicos'][0]) ?>
-        <div class="jumbotron mb-0 servicos">
-            <div class="container">
-                <h1 class="display-4 text-center"><?php echo $titulo; ?></h1>
-                <div class="card-deck">
-                    <div class="card text-center card-um">
-                        <div class="text-primary">
-                            <ion-icon name="<?php echo $icone_um; ?>"></ion-icon>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"><?php echo $nome_um; ?></h5>
-                            <p class="card-text lead"><?php echo $descricao_um; ?></p>
-                        </div>
+        </a>        
+    </div>
+
+    <?php extract($this->Dados['sts_servicos'][0]) ?>
+    <div class="jumbotron mb-0 servicos">
+        <div class="container">
+            <h1 class="display-4 text-center"><?php echo $titulo; ?></h1>
+            <div class="card-deck">
+                <div class="card text-center card-um">
+                    <div class="text-primary">
+                        <ion-icon name="<?php echo $icone_um; ?>"></ion-icon>
                     </div>
-                    <div class="card text-center card-dois">
-                        <div class="text-primary">
-                            <ion-icon name="<?php echo $icone_dois; ?>"></ion-icon>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $nome_dois; ?></h5>
-                            <p class="card-text lead"><?php echo $descricao_dois; ?></p>
-                        </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title"><?php echo $nome_um; ?></h5>
+                        <p class="card-text lead"><?php echo $descricao_um; ?></p>
                     </div>
-                    <div class="card text-center card-tres">
-                        <div class="text-primary">
-                            <ion-icon name="<?php echo $icone_tres; ?>"></ion-icon>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"><?php echo $nome_tres; ?></h5>
-                            <p class="card-text lead"><?php echo $descricao_tres; ?></p>
-                        </div>
+                </div>
+                <div class="card text-center card-dois">
+                    <div class="text-primary">
+                        <ion-icon name="<?php echo $icone_dois; ?>"></ion-icon>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $nome_dois; ?></h5>
+                        <p class="card-text lead"><?php echo $descricao_dois; ?></p>
+                    </div>
+                </div>
+                <div class="card text-center card-tres">
+                    <div class="text-primary">
+                        <ion-icon name="<?php echo $icone_tres; ?>"></ion-icon>
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title"><?php echo $nome_tres; ?></h5>
+                        <p class="card-text lead"><?php echo $descricao_tres; ?></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <?php extract($this->Dados['sts_video'][0]) ?>
+    <div class="jumbotron mb-0 video">
+        <div class="container">
+            <h1 class="display-4 text-center video-titulo"><?php echo $titulo; ?></h1>
+            <p class="lead text-center video-parag"><?php echo $descricao; ?></p>
+            <div class="row justify-content-md-center video-cont">
+                <div class="col-12 col-md-8">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <?php echo $video; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </main>

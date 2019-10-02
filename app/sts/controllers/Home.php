@@ -19,6 +19,9 @@ class Home {
         $listar_servicos = new \Sts\models\StsServicos;
         $this->Dados['sts_servicos'] = $listar_servicos->listar();
 
+        $listar_video = new \Sts\models\StsVideo;
+        $this->Dados['sts_video'] = $listar_video->listar();
+
         $carregarView = new \Core\ConfigView("sts/views/home/home", $this->Dados);
         $carregarView->renderizar();
     }
