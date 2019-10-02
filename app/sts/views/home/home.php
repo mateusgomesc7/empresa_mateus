@@ -57,7 +57,7 @@ if (!defined('URL')) {
         <div class="container">
             <h1 class="display-4 text-center"><?php echo $titulo; ?></h1>
             <div class="card-deck">
-                <div class="card text-center card-um">
+                <div class="card text-center anime_left">
                     <div class="text-primary">
                         <ion-icon name="<?php echo $icone_um; ?>"></ion-icon>
                     </div>
@@ -66,7 +66,7 @@ if (!defined('URL')) {
                         <p class="card-text lead"><?php echo $descricao_um; ?></p>
                     </div>
                 </div>
-                <div class="card text-center card-dois">
+                <div class="card text-center anime_bottom">
                     <div class="text-primary">
                         <ion-icon name="<?php echo $icone_dois; ?>"></ion-icon>
                     </div>
@@ -75,7 +75,7 @@ if (!defined('URL')) {
                         <p class="card-text lead"><?php echo $descricao_dois; ?></p>
                     </div>
                 </div>
-                <div class="card text-center card-tres">
+                <div class="card text-center anime_right">
                     <div class="text-primary">
                         <ion-icon name="<?php echo $icone_tres; ?>"></ion-icon>
                     </div>
@@ -91,9 +91,9 @@ if (!defined('URL')) {
     <?php extract($this->Dados['sts_video'][0]) ?>
     <div class="jumbotron mb-0 video">
         <div class="container">
-            <h1 class="display-4 text-center video-titulo"><?php echo $titulo; ?></h1>
-            <p class="lead text-center video-parag"><?php echo $descricao; ?></p>
-            <div class="row justify-content-md-center video-cont">
+            <h1 class="display-4 text-center anime_left"><?php echo $titulo; ?></h1>
+            <p class="lead text-center anime_right"><?php echo $descricao; ?></p>
+            <div class="row justify-content-md-center anime_bottom">
                 <div class="col-12 col-md-8">
                     <div class="embed-responsive embed-responsive-16by9">
                         <?php echo $video; ?>
@@ -112,7 +112,7 @@ if (!defined('URL')) {
                         extract($artigo);
                 ?>
 
-                <div class="card art-um">
+                <div class="card anime_bottom">
                     <a href="<?php echo URL . 'artigo/' . $slug; ?>">
                         <img src="<?php echo URL . 'assets/imgs/artigo/' . $id . '/' . $imagem; ?>" class="card-img-top" alt="<?php echo $titulo; ?>">
                     </a>
@@ -127,10 +127,7 @@ if (!defined('URL')) {
 
                 <?php
                     }
-                ?>
-
-                
-
+                ?>  
             </div>
         </div>
     </div>
