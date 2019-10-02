@@ -22,6 +22,9 @@ class Home {
         $listar_video = new \Sts\models\StsVideo;
         $this->Dados['sts_video'] = $listar_video->listar();
 
+        $listar_art_home = new \Sts\models\StsArtHome;
+        $this->Dados['sts_artigos'] = $listar_art_home->listarArtHome();
+
         $carregarView = new \Core\ConfigView("sts/views/home/home", $this->Dados);
         $carregarView->renderizar();
     }

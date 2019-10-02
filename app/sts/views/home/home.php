@@ -103,4 +103,36 @@ if (!defined('URL')) {
         </div>
     </div>
 
+    <div class="jumbotron mb-0 servicos">
+        <div class="container">
+            <h1 class="display-4 text-center">Últimos Artigos</h1>
+            <div class="card-deck blog-text">
+                <?php
+                    foreach ($this->Dados['sts_artigos'] as $artigo) {
+                        extract($artigo);
+                ?>
+
+                <div class="card art-um">
+                    <a href="<?php echo URL . 'artigo/' . $slug; ?>">
+                        <img src="<?php echo URL . 'assets/imgs/artigo/' . $id . '/' . $imagem; ?>" class="card-img-top" alt="<?php echo $titulo; ?>">
+                    </a>
+                    <div class="card-body">
+                        <a href="<?php echo URL . 'artigo/' . $slug; ?>">
+                            <h5 class="card-title text-center text-primary"><?php echo $titulo; ?></h5>
+                        </a>
+                        <p class="card-text"><?php echo $descricao; ?></p>
+                        <p class="test-center"><a href="<?php echo URL . 'artigo/' . $slug; ?>" class="btn btn-primary">Mais Detalhes</a></p>
+                    </div>
+                </div>
+
+                <?php
+                    }
+                ?>
+
+                
+
+            </div>
+        </div>
+    </div>
+
 </main>
