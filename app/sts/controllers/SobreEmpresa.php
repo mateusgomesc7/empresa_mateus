@@ -8,8 +8,14 @@ if (!defined('URL')) {
 }
 
 class SobreEmpresa {
+
+    private $Dados;
     
     public function index(){
-        echo "Página sobre empresa <br>";
+        $listarSobEmp = new \Sts\models\StsSobEmp;
+        $this->Dados['sts_sobs_emps'] = $listarSobEmp->listarSobEmp();
+
+        $carregarView = new \Core\ConfigView('sts/views/sobEmp/sobEmp', $this->Dados);
+        $carregarView->renderizar();
     }
 }
