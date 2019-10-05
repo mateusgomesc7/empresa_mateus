@@ -26,6 +26,9 @@ class Blog {
         $listarArtDestaque = new \Sts\models\StsArtDestaque();
         $this->Dados['artDestaque'] = $listarArtDestaque->listarArtDestaque();
 
+        $visSobreAutor = new \Sts\models\StsSobreAutor();
+        $this->Dados['sobreAutor'] = $visSobreAutor->sobreAutor();
+
         $carregarView = new \Core\ConfigView('sts/views/blog/blog', $this->Dados);
         $carregarView->renderizar();
     }
