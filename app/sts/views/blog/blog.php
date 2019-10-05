@@ -65,9 +65,12 @@ if (!defined('URL')) {
                     <div class="p-4">
                         <h4 class="font-italic">Destaque</h4>
                         <ol class="list-unstyled">
-                            <li><a href="#">Artigo 2</a></li>
-                            <li><a href="#">Artigo 6</a></li>
-                            <li><a href="#">Artigo 7</a></li>
+                            <?php
+                                foreach($this->Dados['artDestaque'] as $artigoDest){
+                                    extract($artigoDest);
+                                    echo "<li><a href='".URL."artigo/$slug'>$titulo</a></li>";
+                                }
+                            ?>
                         </ol>
                     </div>
                 </aside><!-- /.blog-sidebar -->

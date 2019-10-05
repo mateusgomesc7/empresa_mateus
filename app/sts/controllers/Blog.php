@@ -23,6 +23,9 @@ class Blog {
         $listarArtRecente = new \Sts\models\StsArtRecente();
         $this->Dados['artRecente'] = $listarArtRecente->listarArtRecente();
 
+        $listarArtDestaque = new \Sts\models\StsArtDestaque();
+        $this->Dados['artDestaque'] = $listarArtDestaque->listarArtDestaque();
+
         $carregarView = new \Core\ConfigView('sts/views/blog/blog', $this->Dados);
         $carregarView->renderizar();
     }
