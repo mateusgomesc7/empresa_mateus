@@ -12,6 +12,12 @@ class SobreEmpresa {
     private $Dados;
     
     public function index(){
+        $listarMenu= new \Sts\models\StsMenu();
+        $this->Dados['menu'] = $listarMenu->listarMenu();
+
+        $listarSeo = new \Sts\Models\StsSeo();
+        $this->Dados['seo'] = $listarSeo->listarSeo();
+
         $listarSobEmp = new \Sts\models\StsSobEmp;
         $this->Dados['sts_sobs_emps'] = $listarSobEmp->listarSobEmp();
 

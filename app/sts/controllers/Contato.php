@@ -28,6 +28,12 @@ class Contato {
 
         }
         
+        $listarMenu= new \Sts\models\StsMenu();
+        $this->Dados['menu'] = $listarMenu->listarMenu();
+
+        $listarSeo = new \Sts\Models\StsSeo();
+        $this->Dados['seo'] = $listarSeo->listarSeo();
+
         $carregarView = new \Core\ConfigView('sts/views/contato/contato', $this->Dados);
         $carregarView->renderizar();
 

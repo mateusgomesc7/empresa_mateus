@@ -12,6 +12,13 @@ class Home {
     private $Dados;
 
     public function index(){
+        //echo "<br><br><br>";
+
+        $listarMenu= new \Sts\models\StsMenu();
+        $this->Dados['menu'] = $listarMenu->listarMenu();
+
+        $listarSeo = new \Sts\models\StsSeo();
+        $this->Dados['seo'] = $listarSeo->listarSeo();
 
         $listar_carousel = new \Sts\models\StsCarousel;
         $this->Dados['sts_carousels'] = $listar_carousel->listar();

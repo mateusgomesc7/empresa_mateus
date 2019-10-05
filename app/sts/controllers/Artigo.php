@@ -13,6 +13,12 @@ class Artigo {
     private $Artigo;
 
     public function index($Artigo = null){
+        $listarMenu= new \Sts\models\StsMenu();
+        $this->Dados['menu'] = $listarMenu->listarMenu();
+
+        $listarSeo = new \Sts\Models\StsSeo();
+        $this->Dados['seo'] = $listarSeo->listarSeo();
+
         $this->Artigo = (string) $Artigo;
         // echo "<br><br><br> {$this->Artigo}";
 
