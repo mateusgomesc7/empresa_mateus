@@ -14,6 +14,15 @@
             echo "<meta name='author' content='$author'>";
             echo "<link rel='canonical' href='".URL."$endereco'>";
             echo "<meta name='keywords' content='$keywords'>";
+
+            echo "<meta property='og:site_name' content='$og_site_name'>";
+            echo "<meta property='og:locale' content='$og_locale'>";
+            //https://pt.piliapp.com/facebook/id/
+            echo "<meta property='fb:admins' content='$fb_admins'>";
+            echo "<meta property='og:url' content='" . URL . "$endereco'>";
+            echo "<meta property='og:title' content='$titulo>";
+            echo "<meta property='og:description' content='$description'>";
+            echo "<meta property='og:image' content='".URL."assets/imgs/pagina/$id/$imagem'>";
         }
         ?>
         
