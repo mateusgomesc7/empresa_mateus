@@ -1,13 +1,13 @@
 <?php
 
-namespace App\sts\controllers;
+namespace App\loja\controllers;
 
 if (!defined('URL')) {
     header("Location: /");
     exit();
 }
 
-class Blog {
+class Loja {
 
     private $Dados;
     private $PageId;
@@ -29,7 +29,7 @@ class Blog {
         $visSobreAutor = new \Sts\models\StsSobreAutor();
         $this->Dados['sobreAutor'] = $visSobreAutor->sobreAutor();
 
-        $carregarView = new \Core\ConfigView('sts/views/blog/blog', $this->Dados);
+        $carregarView = new \Core\ConfigView('loja/views/loja/vitrine', $this->Dados);
         $carregarView->renderizar();
     }
 }

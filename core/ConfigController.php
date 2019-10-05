@@ -66,13 +66,12 @@ class ConfigController{
     }
 
     public function carregar(){
-        //echo "<br><br><br>";
-
         $listarPg = new \Sts\models\StsPaginas;
         $this->Paginas = $listarPg->listarPaginas($this->UrlController);
 
         if($this->Paginas){
-            $this->Classe = "\\Sts\\controllers\\"  . $this->UrlController;
+            extract($this->Paginas[0]);
+            $this->Classe = "\\App\\{$tipo_tpg}\\controllers\\"  . $this->UrlController;
             if(class_exists($this->Classe)){
                $this->carregarMetodo();
             }else{

@@ -1,6 +1,6 @@
 <?php
 
-namespace Sts\Controllers;
+namespace App\sts\controllers;
 
 if (!defined('URL')) {
     header("Location: /");
