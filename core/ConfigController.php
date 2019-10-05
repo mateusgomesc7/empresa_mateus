@@ -66,7 +66,11 @@ class ConfigController{
     public function carregar(){
         $classe = "\\Sts\\controllers\\"  . $this->UrlController;
         $classeCarregar = new $classe; // Intanciando a classe que veio pela url
-        $classeCarregar->index();
+        if($this->UrlParametro !== null){
+            $classeCarregar->index($this->UrlParametro);
+        }else{
+            $classeCarregar->index();
+        }
     }
 
 }
