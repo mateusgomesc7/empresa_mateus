@@ -8,6 +8,7 @@ class ConfigController{
     private $UrlConjunto;
     private $UrlController;
     private $UrlParametro;
+    private $Classe;
     private static $Format;
 
     public function __construct(){
@@ -20,7 +21,7 @@ class ConfigController{
                $this->UrlController = $this->slugController($this->UrlConjunto[0]);
             } else {
                 echo "oi <br>";
-                $this->UrlController = CONTROLLER;
+                $this->UrlController = $this->slugController(CONTROLLER);
             }
             if (isset($this->UrlConjunto[1])){
                 $this->UrlParametro = $this->UrlConjunto[1];
@@ -30,7 +31,7 @@ class ConfigController{
             // echo "URL: {$this->Url} <br>";
             // echo "Controller: {$this->UrlController} <br>";
         } else {
-            $this->UrlController = CONTROLLER;
+            $this->UrlController = $this->slugController(CONTROLLER);
             $this->UrlParametro = null;
         } 
     }
@@ -64,12 +65,26 @@ class ConfigController{
     }
 
     public function carregar(){
-        $classe = "\\Sts\\controllers\\"  . $this->UrlController;
-        $classeCarregar = new $classe; // Intanciando a classe que veio pela url
-        if($this->UrlParametro !== null){
-            $classeCarregar->index($this->UrlParametro);
+        $this->Classe = "\\Sts\\controllers\\"  . $this->UrlController;
+        if(class_exists($this->Classe)){
+           $this->carregarMetodo();
         }else{
-            $classeCarregar->index();
+            $this->UrlController = $this->slugController(CONTROLLER);
+            $this->carregar();
+        }
+    }
+
+    private function carregarMetodo(){
+        $classeCarregar = new $this->Classe; // Intanciando a classe que veio pela url
+        if(method_exists($classeCarregar, "index")){
+            if($this->UrlParametro !== null){
+                $classeCarregar->index($this->UrlParametro);
+            }else{
+                $classeCarregar->index();
+            }
+        }else{
+            $this->UrlController = $this->slugController(CONTROLLER);
+            $this->carregar();
         }
     }
 
