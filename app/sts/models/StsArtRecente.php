@@ -1,0 +1,23 @@
+<?php
+
+namespace Sts\models;
+
+if (!defined('URL')) {
+    header("Location: /");
+    exit();
+}
+
+class StsArtRecente {
+
+    private $Resultado;
+    public function listarArtRecente(){
+        $listar = new \Sts\models\helper\StsRead;
+        $listar->fullRead('SELECT titulo, slug FROM sts_artigos
+        WHERE adms_sit_id =:adms_sit_id
+        ORDER BY id DESC
+        LIMIT :limit', 'adms_sit_id=1&limit=7');
+
+        $this->Resultado = $listar->getResultado();
+        return $this->Resultado;
+    }
+}
