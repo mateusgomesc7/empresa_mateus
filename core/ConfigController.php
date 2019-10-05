@@ -9,6 +9,7 @@ class ConfigController{
     private $UrlController;
     private $UrlParametro;
     private $Classe;
+    private $Paginas;
     private static $Format;
 
     public function __construct(){
@@ -65,13 +66,24 @@ class ConfigController{
     }
 
     public function carregar(){
-        $this->Classe = "\\Sts\\controllers\\"  . $this->UrlController;
-        if(class_exists($this->Classe)){
-           $this->carregarMetodo();
+        //echo "<br><br><br>";
+
+        $listarPg = new \Sts\models\StsPaginas;
+        $this->Paginas = $listarPg->listarPaginas($this->UrlController);
+
+        if($this->Paginas){
+            $this->Classe = "\\Sts\\controllers\\"  . $this->UrlController;
+            if(class_exists($this->Classe)){
+               $this->carregarMetodo();
+            }else{
+                $this->UrlController = $this->slugController(CONTROLLER);
+                $this->carregar();
+            }
         }else{
             $this->UrlController = $this->slugController(CONTROLLER);
-            $this->carregar();
+                $this->carregar();
         }
+        
     }
 
     private function carregarMetodo(){
